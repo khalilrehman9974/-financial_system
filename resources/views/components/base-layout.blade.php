@@ -307,6 +307,6 @@
 
     @endif
          
-        {{$footerFiles}}
+        <!-- {{$footerFiles}} -->
 </body>
 </html>

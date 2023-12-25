@@ -35,10 +35,10 @@
                     <div class="profile-info">
                         <div class="user-info">
                             <div class="profile-img">
-                                <img src="{{Vite::asset('resources/images/profile-30.png')}}" alt="avatar">
+                                <img src="{{ !empty(\Illuminate\Support\Facades\Auth::user()->avatar) ? asset('public/uploads/users/'.\Illuminate\Support\Facades\Auth::user()->avatar) : asset('public/images/placeholder.jpg') }}" alt="avatar">
                             </div>
                             <div class="profile-content">
-                                <h6 class="">Shaun Park</h6>
+                                <h6 class="">{{\Illuminate\Support\Facades\Auth::user()->name}}</h6>
                                 <p class="">Project Leader</p>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                 @endif
                 <div class="shadow-bottom"></div>
                 <ul class="list-unstyled menu-categories" id="accordionExample">
-                    <li class="menu {{ Request::is('*/dashboard/*') ? "active" : "" }}">
+                    <!-- <li class="menu {{ Request::is('*/dashboard/*') ? "active" : "" }}">
                         <a href="#dashboard" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/dashboard/*') ? "true" : "false" }}" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -64,22 +64,30 @@
                                 <a href="{{getRouterValue();}}/dashboard/sales"> Sales </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
 
-                    <li class="menu menu-heading">
+                    <!-- <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>APPLICATIONS</span></div>
+                    </li> -->
+
+                    <li class="menu {{ Request::routeIs('home') ? 'active' : '' }}">
+                        <a href="{{route('home')}}" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                <span>Dashboard</span>
+                            </div>
+                        </a>
                     </li>
 
                     <li class="menu {{ Request::routeIs('calendar') ? 'active' : '' }}">
-                        <a href="{{getRouterValue();}}/app/calendar" aria-expanded="false" class="dropdown-toggle">
+                        <a href="{{route('chart-of-account.create')}}" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                <span>Calendar</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>                                <span>Chart of Accounts</span>
                             </div>
                         </a>
                     </li>
                     
-                    <li class="menu {{ Request::routeIs('chat') ? 'active' : '' }}">
+                    <!-- <li class="menu {{ Request::routeIs('chat') ? 'active' : '' }}">
                         <a href="{{getRouterValue();}}/app/chat" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -131,7 +139,7 @@
                                 <span>Contacts</span>
                             </div>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li class="menu {{ Request::is('*/app/invoice/*') ? "active" : "" }}">
                         <a href="#invoice" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/app/invoice/*') ? "true" : "false" }}" class="dropdown-toggle">
@@ -159,7 +167,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu {{ Request::is('*/app/ecommerce/*') ? "active" : "" }}">
+                    <!-- <li class="menu {{ Request::is('*/app/ecommerce/*') ? "active" : "" }}">
                         <a href="#ecommerce" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/app/ecommerce/*') ? "true" : "false" }}" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -684,7 +692,7 @@
                                 <span>Changelog</span>
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                     
                 </ul>
                 
