@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'chart-of-account'], function () {
         // Route::get('list', ['as' => 'chart-of-account.list', 'uses' => 'CompaniesController@index']);
         Route::get('create', ['as' => 'chart-of-account.create', 'uses' => 'App\Http\Controllers\ChartOfAccountController@create']);
-        // Route::post('save', ['as' => 'chart-of-account.save', 'uses' => 'CompaniesController@store']);
+        Route::post('save', ['as' => 'chart-of-account.save', 'uses' => 'App\Http\Controllers\ChartOfAccountController@store']);
         // Route::get('edit/{id}', ['as' => 'chart-of-account.edit', 'uses' => 'CompaniesController@edit']);
         // Route::post('update', ['as' => 'chart-of-account.update', 'uses' => 'CompaniesController@update']);
         // Route::delete('delete/{id}', ['as' => 'chart-of-account.delete', 'uses' => 'CompaniesController@destroy']);

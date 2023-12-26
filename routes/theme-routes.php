@@ -11,7 +11,7 @@ Route::get('/', function () {
  */
 
 $prefixRouters = [
-    'modern-light-menu', 'modern-dark-menu', 'collapsible-menu', 'horizontal-light-menu', 'horizontal-dark-menu'
+    'horizontal-light-menu', 'modern-light-menu', 'modern-dark-menu', 'collapsible-menu', 'horizontal-dark-menu'
 ];
 
 foreach ($prefixRouters as $prefixRouter) {
@@ -486,7 +486,7 @@ foreach ($prefixRouters as $prefixRouter) {
 Route::prefix('rtl')->group(function () {
 
     $rtlPrefixRouters = [
-        'modern-light-menu', 'modern-dark-menu', 'collapsible-menu', 'horizontal-light-menu', 'horizontal-dark-menu'
+        'horizontal-light-menu', 'modern-light-menu', 'modern-dark-menu', 'collapsible-menu', 'horizontal-dark-menu'
     ];
     
     foreach ($rtlPrefixRouters as $rtlPrefixRouter) {

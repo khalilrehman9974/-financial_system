@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreChartOfAccounts;
 use App\Models\ChartOfAccount;
+use App\Services\ChartOfAccountService;
 use Illuminate\Http\Request;
+use Session;
 
 class ChartOfAccountController extends Controller
 {
+    protected $chartOfAccountService;
+
+    public function __construct(ChartOfAccountService $chartOfAccountService) {
+        $this->chartOfAccountService = $chartOfAccountService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +44,17 @@ class ChartOfAccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(StoreChartOfAccounts $request)
+    {			
+        $data = request()->except('_token');
+        $this->chartOfAccountService->findUpdateOrCreate(ChartOfAccount::class, ['id'=>$request['id']], $data);
+        $message = 'Account has been added';
+        if($request['id']){
+            $message = 'Account has been updated';
+        }
+        Session::flash('message', $message);
+
+        // return redirect('project/list');
     }
 
     /**

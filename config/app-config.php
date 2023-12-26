@@ -11,6 +11,15 @@ return array(
          */
         
         // LTR
+        'hlm' => array(
+            'layout-id' => 'horizontal-light-menu',
+            'name' => 'Horizontal Light Menu',
+            'boxed' => true,
+            // 'theme' => 'dark',
+            // 'dark' => true,
+            'rtl' => false,
+            'alt-menu' => false
+        ),
 
         'vlm' => array(
             'layout-id' => 'vertical-light-menu',
@@ -40,15 +49,7 @@ return array(
             'alt-menu' => true
         ),
 
-        'hlm' => array(
-            'layout-id' => 'horizontal-light-menu',
-            'name' => 'Horizontal Light Menu',
-            'boxed' => true,
-            // 'theme' => 'dark',
-            // 'dark' => true,
-            'rtl' => false,
-            'alt-menu' => false
-        ),
+        
 
 
 

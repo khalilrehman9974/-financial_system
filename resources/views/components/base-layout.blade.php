@@ -20,20 +20,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>{{ $pageTitle }}</title>
     <link rel="icon" type="image/x-icon" href="{{Vite::asset('resources/images/favicon.ico')}}"/>
-    @vite(['resources/scss/layouts/modern-light-menu/light/loader.scss'])
+    @vite(['resources/scss/layouts/horizontal-light-menu/light/loader.scss'])
 
-    @if (Request::is('modern-light-menu/*'))
-        @vite(['resources/layouts/modern-light-menu/loader.js'])
+    @if((Request::is('horizontal-light-menu/*')))
+        @vite(['resources/layouts/horizontal-light-menu/loader.js'])
     @elseif ((Request::is('modern-dark-menu/*')))
         @vite(['resources/layouts/modern-dark-menu/loader.js'])
     @elseif ((Request::is('collapsible-menu/*')))
         @vite(['resources/layouts/collapsible-menu/loader.js'])
-    @elseif ((Request::is('horizontal-light-menu/*')))
-        @vite(['resources/layouts/horizontal-light-menu/loader.js'])
+    @elseif (Request::is('modern-light-menu/*'))
+        @vite(['resources/layouts/modern-light-menu/loader.js'])
     @elseif ((Request::is('horizontal-dark-menu/*')))
         @vite(['resources/layouts/horizontal-dark-menu/loader.js'])
     @else
-        @vite(['resources/layouts/modern-light-menu/loader.js'])
+        @vite(['resources/layouts/horizontal-light-menu/loader.js'])
+
+        <!-- @vite(['resources/layouts/modern-light-menu/loader.js']) -->
     @endif
     
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
@@ -94,11 +96,15 @@
         ])
 
         @else
-
         @vite([
+            'resources/scss/layouts/horizontal-light-menu/light/structure.scss',
+            'resources/scss/layouts/horizontal-light-menu/dark/structure.scss',
+        ])
+
+        <!-- @vite([
             'resources/scss/layouts/modern-light-menu/light/structure.scss',
             'resources/scss/layouts/modern-light-menu/dark/structure.scss',
-        ])
+        ]) -->
         
         @endif
 
@@ -181,7 +187,9 @@
             @else
 
                 <!--  BEGIN NAVBAR  -->
-                <x-navbar.style-vertical-menu classes="{{($isBoxed ? 'container-xxl' : '')}}"/>
+                <x-navbar.style-horizontal-menu classes="{{($isBoxed ? 'container-xxl' : '')}}"/>
+
+                <!-- <x-navbar.style-vertical-menu classes="{{($isBoxed ? 'container-xxl' : '')}}"/> -->
                 <!--  END NAVBAR  -->
                 
             @endif
@@ -301,7 +309,8 @@
         @elseif (Request::is('horizontal-dark-menu/*'))
             @vite(['resources/layouts/horizontal-dark-menu/app.js'])
         @else 
-            @vite(['resources/layouts/modern-light-menu/app.js'])
+            @vite(['resources/layouts/horizontal-light-menu/app.js'])
+            <!-- @vite(['resources/layouts/modern-light-menu/app.js']) -->
         @endif
         <!-- END GLOBAL MANDATORY STYLES -->
 

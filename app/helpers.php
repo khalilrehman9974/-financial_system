@@ -3,11 +3,10 @@
 
 if (! function_exists('layoutConfig')) {
     function layoutConfig() {
-
-        if (Request::is('modern-light-menu/*')) {
-
-            $__getConfiguration = Config::get('app-config.layout.vlm');
+        if (Request::is('horizontal-light-menu/*')) {
             
+            $__getConfiguration = Config::get('app-config.layout.hlm');
+        
         } else if (Request::is('modern-dark-menu/*')) {
             
             $__getConfiguration = Config::get('app-config.layout.vdm');
@@ -16,9 +15,9 @@ if (! function_exists('layoutConfig')) {
             
             $__getConfiguration = Config::get('app-config.layout.cm');
             
-        } else if (Request::is('horizontal-light-menu/*')) {
-            
-            $__getConfiguration = Config::get('app-config.layout.hlm');
+        } else if (Request::is('modern-light-menu/*')) {
+
+            $__getConfiguration = Config::get('app-config.layout.vlm');
             
         } else if (Request::is('horizontal-dark-menu/*')) {
             
@@ -28,10 +27,10 @@ if (! function_exists('layoutConfig')) {
         
         // RTL
 
-        else if (Request::is('rtl/modern-light-menu/*')) {
-
-            $__getConfiguration = Config::get('app-config.layout.vlm-rtl');
+        else if (Request::is('rtl/horizontal-light-menu/*')) {
             
+            $__getConfiguration = Config::get('app-config.layout.hlm-rtl');
+        
         } else if (Request::is('rtl/modern-dark-menu/*')) {
             
             $__getConfiguration = Config::get('app-config.layout.vdm-rtl');
@@ -40,9 +39,9 @@ if (! function_exists('layoutConfig')) {
             
             $__getConfiguration = Config::get('app-config.layout.cm-rtl');
             
-        } else if (Request::is('rtl/horizontal-light-menu/*')) {
-            
-            $__getConfiguration = Config::get('app-config.layout.hlm-rtl');
+        } else if (Request::is('rtl/modern-light-menu/*')) {
+
+            $__getConfiguration = Config::get('app-config.layout.vlm-rtl');
             
         } else if (Request::is('rtl/horizontal-dark-menu/*')) {
             
@@ -56,7 +55,7 @@ if (! function_exists('layoutConfig')) {
 
         else if (Request::is('login')) {
 
-            $__getConfiguration = Config::get('app-config.layout.vlm');
+            $__getConfiguration = Config::get('app-config.layout.hlm');
             
         } else {
             $__getConfiguration = Config::get('barebone-config.layout.bb');
@@ -69,11 +68,10 @@ if (! function_exists('layoutConfig')) {
 
 if (!function_exists('getRouterValue')) {
     function getRouterValue() {
+        if (Request::is('horizontal-light-menu/*')) {
+            
+            $__getRoutingValue = '/horizontal-light-menu';
         
-        if (Request::is('modern-light-menu/*')) {
-            
-            $__getRoutingValue = '/modern-light-menu';
-            
         } else if (Request::is('modern-dark-menu/*')) {
             
             $__getRoutingValue = '/modern-dark-menu';
@@ -82,9 +80,9 @@ if (!function_exists('getRouterValue')) {
             
             $__getRoutingValue = '/collapsible-menu';
 
-        } else if (Request::is('horizontal-light-menu/*')) {
+        } else if (Request::is('modern-light-menu/*')) {
             
-            $__getRoutingValue = '/horizontal-light-menu';
+            $__getRoutingValue = '/modern-light-menu';
             
         } else if (Request::is('horizontal-dark-menu/*')) {
             
@@ -94,9 +92,9 @@ if (!function_exists('getRouterValue')) {
 
         // RTL
 
-        else if (Request::is('rtl/modern-light-menu/*')) {
-
-            $__getRoutingValue = '/rtl/modern-light-menu';
+        else if (Request::is('rtl/horizontal-light-menu/*')) {
+            
+            $__getRoutingValue = '/rtl/horizontal-light-menu';
             
         } else if (Request::is('rtl/modern-dark-menu/*')) {
             
@@ -106,9 +104,9 @@ if (!function_exists('getRouterValue')) {
             
             $__getRoutingValue = '/rtl/collapsible-menu';
             
-        } else if (Request::is('rtl/horizontal-light-menu/*')) {
-            
-            $__getRoutingValue = '/rtl/horizontal-light-menu';
+        } else if (Request::is('rtl/modern-light-menu/*')) {
+
+            $__getRoutingValue = '/rtl/modern-light-menu';
             
         } else if (Request::is('rtl/horizontal-dark-menu/*')) {
             
@@ -120,7 +118,7 @@ if (!function_exists('getRouterValue')) {
 
         else if (Request::is('login')) {
 
-            $__getRoutingValue = '/modern-light-menu';
+            $__getRoutingValue = '/horizontal-light-menu';
             
         } else {
             $__getRoutingValue = '';

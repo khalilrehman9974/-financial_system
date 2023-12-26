@@ -31,19 +31,7 @@
                         </div>
                     </div>
                 </div>
-                @if (!Request::is('collapsible-menu/*'))
-                    <div class="profile-info">
-                        <div class="user-info">
-                            <div class="profile-img">
-                                <img src="{{ !empty(\Illuminate\Support\Facades\Auth::user()->avatar) ? asset('public/uploads/users/'.\Illuminate\Support\Facades\Auth::user()->avatar) : asset('public/images/placeholder.jpg') }}" alt="avatar">
-                            </div>
-                            <div class="profile-content">
-                                <h6 class="">{{\Illuminate\Support\Facades\Auth::user()->name}}</h6>
-                                <p class="">Project Leader</p>
-                            </div>
-                        </div>
-                    </div>
-                @endif
+                
                 <div class="shadow-bottom"></div>
                 <ul class="list-unstyled menu-categories" id="accordionExample">
                     <!-- <li class="menu {{ Request::is('*/dashboard/*') ? "active" : "" }}">
@@ -86,7 +74,31 @@
                             </div>
                         </a>
                     </li>
-                    
+                    <li class="menu {{ Request::is('*/app/invoice/*') ? "active" : "" }}">
+                        <a href="#invoice" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/app/invoice/*') ? "true" : "false" }}" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                <span>Invoice</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled {{ Request::is('*/app/invoice/*') ? "show" : "" }}" id="invoice" data-bs-parent="#accordionExample">
+                            <li class="{{ Request::routeIs('invoice-list') ? 'active' : '' }}">
+                                <a href="{{getRouterValue();}}/app/invoice/list"> List </a>
+                            </li>
+                            <li class="{{ Request::routeIs('invoice-preview') ? 'active' : '' }}">
+                                <a href="{{getRouterValue();}}/app/invoice/preview"> Preview </a>
+                            </li>
+                            <li class="{{ Request::routeIs('invoice-add') ? 'active' : '' }}">
+                                <a href="{{getRouterValue();}}/app/invoice/add"> Add </a>
+                            </li>
+                            <li class="{{ Request::routeIs('invoice-edit') ? 'active' : '' }}">
+                                <a href="{{getRouterValue();}}/app/invoice/edit"> Edit </a>
+                            </li>                            
+                        </ul>
+                    </li>
                     <!-- <li class="menu {{ Request::routeIs('chat') ? 'active' : '' }}">
                         <a href="{{getRouterValue();}}/app/chat" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
