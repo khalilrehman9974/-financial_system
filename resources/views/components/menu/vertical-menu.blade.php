@@ -74,7 +74,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu {{ Request::is('*/app/invoice/*') ? "active" : "" }}">
+                    <!-- <li class="menu {{ Request::is('*/app/invoice/*') ? "active" : "" }}">
                         <a href="#invoice" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/app/invoice/*') ? "true" : "false" }}" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
@@ -98,7 +98,7 @@
                                 <a href="{{getRouterValue();}}/app/invoice/edit"> Edit </a>
                             </li>                            
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- <li class="menu {{ Request::routeIs('chat') ? 'active' : '' }}">
                         <a href="{{getRouterValue();}}/app/chat" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
