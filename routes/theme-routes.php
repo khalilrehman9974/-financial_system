@@ -1,9 +1,8 @@
 <?php
-
 Route::get('/', function () {
-    return view('welcome', ['title' => 'This is Title', 'breadcrumb' => 'This Breadcrumb']);
+    return redirect('login');
 });
-
+    
 /**
  * =======================
  *      LTR ROUTERS

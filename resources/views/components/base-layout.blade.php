@@ -48,7 +48,7 @@
             !Request::routeIs('lockscreen') &&
             !Request::routeIs('password-reset') &&
             !Request::routeIs('2Step') &&
-
+            
             // Real Logins
             !Request::routeIs('login')
         )

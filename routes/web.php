@@ -51,4 +51,17 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('search', ['as' => 'mainHead.search', 'uses' => 'App\Http\Controllers\CoaMainHeadController@search']);
     });
 
+     //Store issue note
+     Route::group(['prefix' => 'store-issue-note'], function () {
+        Route::get('list', ['as' => 'store-issue-note.list', 'uses' => 'App\Http\Controllers\StoreIssueNoteController@index']);
+        Route::get('create', ['as' => 'store-issue-note.create', 'uses' => 'App\Http\Controllers\StoreIssueNoteController@create']);
+        Route::post('save', ['as' => 'store-issue-note.save', 'uses' => 'App\Http\Controllers\StoreIssueNoteController@store']);
+        // Route::get('edit/{id}', ['as' => 'chart-of-account.edit', 'uses' => 'CompaniesController@edit']);
+        // Route::post('update', ['as' => 'chart-of-account.update', 'uses' => 'CompaniesController@update']);
+        // Route::delete('delete/{id}', ['as' => 'chart-of-account.delete', 'uses' => 'CompaniesController@destroy']);
+        // Route::post('show/{id}', ['as' => 'chart-of-account.show', 'uses' => 'CompaniesController@show']);
+        // Route::get('search', ['as' => 'chart-of-account.search', 'uses' => 'CompaniesController@search']);
+
+    });
+
 });

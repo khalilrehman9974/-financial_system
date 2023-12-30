@@ -14,7 +14,7 @@
             #load_screen {
                 display: none;
             }
-        </style>
+        </style>    
         <!--  END CUSTOM STYLE FILE  -->
     </x-slot>
     <!-- END GLOBAL MANDATORY STYLES -->
@@ -22,7 +22,7 @@
     <div class="auth-container d-flex">
 
         <div class="container mx-auto align-self-center">
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" class="row g-3 needs-validation" novalidate>
                             @csrf
             <div class="row">
     
@@ -40,13 +40,23 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input type="email" name="email" class="form-control">
+                                        <input type="email" name="email" class="form-control" required>
+                                        @error('email')
+                                        <div class="invalid-feedback">                                                
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-4">
                                         <label class="form-label">Password</label>
                                         <input type="text" name="password" class="form-control">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -66,7 +76,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 mb-4">
+                                <!-- <div class="col-12 mb-4">
                                     <div class="">
                                         <div class="seperator">
                                             <hr>
@@ -100,13 +110,13 @@
                                             <span class="btn-text-inner">Twitter</span>
                                         </button>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="col-12">
+                                <!-- <div class="col-12">
                                     <div class="text-center">
                                         <p class="mb-0">Dont't have an account ? <a href="javascript:void(0);" class="text-warning">Sign Up</a></p>
                                     </div>
-                                </div>
+                                </div> -->
                                 
                             </div>
                             
@@ -119,6 +129,23 @@
         </div>
 
     </div>
+
+    <script>
+        window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+}, false);
+</script>
     
     <!--  BEGIN CUSTOM SCRIPTS FILE  -->
     <x-slot:footerFiles>
