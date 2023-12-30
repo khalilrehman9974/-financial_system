@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChartOfAccountController;
 /*
@@ -37,6 +38,17 @@ Route::group(['middleware' => ['auth']], function () {
         // Route::post('show/{id}', ['as' => 'chart-of-account.show', 'uses' => 'CompaniesController@show']);
         // Route::get('search', ['as' => 'chart-of-account.search', 'uses' => 'CompaniesController@search']);
 
+    });
+
+    Route::group(['prefix' => 'mainHead', 'middleware' => 'auth'], function () {
+        Route::get('list', ['as' => 'mainHead.list', 'uses' => 'App\Http\Controllers\CoaMainHeadController@index']);
+        Route::get('create', ['as' => 'mainHead.create', 'uses' => 'App\Http\Controllers\CoaMainHeadController@create']);
+        Route::post('save', ['as' => 'mainHead.save', 'uses' => 'App\Http\Controllers\CoaMainHeadController@store']);
+        Route::get('edit/{id}', ['as' => 'mainHead.edit', 'uses' => 'App\Http\Controllers\CoaMainHeadController@edit']);
+        Route::post('update', ['as' => 'mainHead.update', 'uses' => 'App\Http\Controllers\CoaMainHeadController@store']);
+        Route::get('delete', ['as' => 'mainHead.delete', 'uses' => 'App\Http\Controllers\CoaMainHeadController@destroy']);
+        Route::post('show/{id}', ['as' => 'mainHead.show', 'uses' => 'App\Http\Controllers\CoaMainHeadController@show']);
+        Route::get('search', ['as' => 'mainHead.search', 'uses' => 'App\Http\Controllers\CoaMainHeadController@search']);
     });
 
 });

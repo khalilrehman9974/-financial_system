@@ -2,7 +2,7 @@
 /**
 *
 * Created a new component <x-menu.horizontal-menu/>.
-* 
+*
 */
 
 
@@ -89,7 +89,7 @@
                             </li>
                             <li class="sub-submenu dropend {{ Request::is('*/app/invoice/*') ? "active" : "" }}">
                                 <a href="#invoice" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed">Invoice <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="invoice"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="invoice">
                                     <li class="{{ Request::routeIs('invoice-list') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/app/invoice/list"> List </a>
                                     </li>
@@ -106,7 +106,7 @@
                             </li>
                             <li class="sub-submenu dropend {{ Request::is('*/app/ecommerce/*') ? "active" : "" }}">
                                 <a href="#ecommerce" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed">Ecommerce <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="ecommerce" data-bs-parent="#apps"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="ecommerce" data-bs-parent="#apps">
                                     <li class="{{ Request::routeIs('ecommerce-shop') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/app/ecommerce/shop"> Shop </a>
                                     </li>
@@ -118,7 +118,7 @@
                                     </li>
                                     <li class="{{ Request::routeIs('ecommerce-add') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/app/ecommerce/add"> Create </a>
-                                    </li>                            
+                                    </li>
                                     <li class="{{ Request::routeIs('ecommerce-edit') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/app/ecommerce/edit"> Edit </a>
                                     </li>
@@ -126,7 +126,7 @@
                             </li>
                             <li class="sub-submenu dropend {{ Request::is('*/app/blog/*') ? "active" : "" }}">
                                 <a href="#blog" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed">Blog <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="blog" data-bs-parent="#apps"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="blog" data-bs-parent="#apps">
                                     <li class="{{ Request::routeIs('blog-grid') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/app/blog/grid"> Grid </a>
                                     </li>
@@ -138,7 +138,7 @@
                                     </li>
                                     <li class="{{ Request::routeIs('blog-create') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/app/blog/create"> Create </a>
-                                    </li>                            
+                                    </li>
                                     <li class="{{ Request::routeIs('blog-edit') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/app/blog/edit"> Edit </a>
                                     </li>
@@ -170,7 +170,7 @@
                             </li>
                             <li class="{{ Request::routeIs('modal') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/component/modal"> Modals </a>
-                            </li>                            
+                            </li>
                             <li class="{{ Request::routeIs('cards') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/component/cards"> Cards </a>
                             </li>
@@ -235,7 +235,7 @@
                             </li>
                             <li class="{{ Request::routeIs('breadcrumbs') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/element/breadcrumbs"> Breadcrumbs </a>
-                            </li>                            
+                            </li>
                             <li class="{{ Request::routeIs('buttons') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/element/buttons"> Buttons </a>
                             </li>
@@ -300,7 +300,7 @@
 
                             <li class="sub-submenu dropend {{ Request::is('*/datatables/*') ? "active" : "" }}">
                                 <a href="#datatable" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed"> Datatable <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="datatable" data-bs-parent="#tables"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="datatable" data-bs-parent="#tables">
                                     <li class="{{ Request::routeIs('basic') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/datatables/basic"> Basic </a>
                                     </li>
@@ -315,7 +315,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            
+
                         </ul>
                     </li>
 
@@ -356,7 +356,7 @@
                             </li>
                             <li class="{{ Request::routeIs('maxlength') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/form/maxlength"> Maxlength </a>
-                            </li>                          
+                            </li>
                             <li class="{{ Request::routeIs('checkbox') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/form/checkbox"> Checkbox </a>
                             </li>
@@ -427,7 +427,7 @@
                             </li>
                             <li class="sub-submenu dropend">
                                 <a href="#login" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed"> Sign In <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="login" data-bs-parent="#pages"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="login" data-bs-parent="#pages">
                                     <li>
                                         <a href="{{getRouterValue();}}/authentication/boxed/signin"> Boxed </a>
                                     </li>
@@ -438,7 +438,7 @@
                             </li>
                             <li class="sub-submenu dropend">
                                 <a href="#signup" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed"> Sign Up <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="signup" data-bs-parent="#pages"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="signup" data-bs-parent="#pages">
                                     <li>
                                         <a href="{{getRouterValue();}}/authentication/boxed/signup"> Boxed </a>
                                     </li>
@@ -449,7 +449,7 @@
                             </li>
                             <li class="sub-submenu dropend">
                                 <a href="#unlock" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed"> Unlock <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="unlock" data-bs-parent="#pages"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="unlock" data-bs-parent="#pages">
                                     <li>
                                         <a href="{{getRouterValue();}}/authentication/boxed/lockscreen"> Boxed </a>
                                     </li>
@@ -460,7 +460,7 @@
                             </li>
                             <li class="sub-submenu dropend">
                                 <a href="#reset" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed"> Reset <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="reset" data-bs-parent="#pages"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="reset" data-bs-parent="#pages">
                                     <li>
                                         <a href="{{getRouterValue();}}/authentication/boxed/password-reset"> Boxed </a>
                                     </li>
@@ -471,7 +471,7 @@
                             </li>
                             <li class="sub-submenu dropend">
                                 <a href="#twoStep" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed"> Two Step <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="twoStep" data-bs-parent="#pages"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="twoStep" data-bs-parent="#pages">
                                     <li>
                                         <a href="{{getRouterValue();}}/authentication/boxed/2-step-verification"> Boxed </a>
                                     </li>
@@ -506,7 +506,7 @@
                             </li>
                             <li class="sub-submenu dropend {{ Request::is('*/layout/*') ? "active" : "" }}">
                                 <a href="#layouts" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle collapsed"> Layouts <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="dropdown-menu list-unstyled sub-submenu" id="layouts" data-bs-parent="#more"> 
+                                <ul class="dropdown-menu list-unstyled sub-submenu" id="layouts" data-bs-parent="#more">
                                     <li class="{{ Request::routeIs('blank') ? 'active' : '' }}">
                                         <a href="{{getRouterValue();}}/layout/blank"> Blank Page </a>
                                     </li>
@@ -524,12 +524,12 @@
                             <li>
                                 <a target="_blank" href="https://designreset.com/cork/documentation/laravel/changelog.html"> Changelog </a>
                             </li>
-                            
+
                         </ul>
                     </li>
 
                 </ul>
-                
+
             </nav>
 
         </div>

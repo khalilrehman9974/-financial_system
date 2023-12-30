@@ -1,14 +1,14 @@
-{{-- 
+{{--
 
 /**
 *
 * Created a new component <x-menu.vertical-menu/>.
-* 
+*
 */
 
 --}}
 
-    
+
         <div class="sidebar-wrapper sidebar-theme">
 
             <nav id="sidebar">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="shadow-bottom"></div>
                 <ul class="list-unstyled menu-categories" id="accordionExample">
                     <!-- <li class="menu {{ Request::is('*/dashboard/*') ? "active" : "" }}">
@@ -67,12 +67,36 @@
                         </a>
                     </li>
 
-                    <li class="menu {{ Request::routeIs('calendar') ? 'active' : '' }}">
+                    {{-- <li class="menu {{ Request::routeIs('calendar') ? 'active' : '' }}">
                         <a href="{{route('chart-of-account.create')}}" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>                                <span>Chart of Accounts</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Chart of Accounts</span>
                             </div>
                         </a>
+                    </li> --}}
+                    <li class="menu {{ Request::is('*/app/chart-of-account/*') ? "active" : "" }}">
+                        <a href="#chart-of-account" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/app/chart-of-account/*') ? "true" : "false" }}" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Chart of Accounts</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled {{ Request::is('*/app/chart-of-account/*') ? "show" : "" }}" id="chart-of-account" data-bs-parent="#accordionExample">
+                            <li class="{{ Request::routeIs('chart-of-account-main-head') ? 'active' : '' }}">
+                                <a href="{{route('mainHead.list')}}"> Main Head </a>
+                            </li>
+                            <li class="{{ Request::routeIs('chart-of-account-control-head') ? 'active' : '' }}">
+                                <a href="{{getRouterValue();}}/app/chart-of-account/control-head"> Control Head </a>
+                            </li>
+                            <li class="{{ Request::routeIs('chart-of-account-sub-head') ? 'active' : '' }}">
+                                <a href="{{getRouterValue();}}/app/chart-of-account/sub-head"> Sub Head </a>
+                            </li>
+                            <li class="{{ Request::routeIs('chart-of-account-detail-account') ? 'active' : '' }}">
+                                <a href="{{getRouterValue();}}/app/chart-of-account/detail-account"> Detail Account </a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- <li class="menu {{ Request::is('*/app/invoice/*') ? "active" : "" }}">
                         <a href="#invoice" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/app/invoice/*') ? "true" : "false" }}" class="dropdown-toggle">
@@ -96,7 +120,7 @@
                             </li>
                             <li class="{{ Request::routeIs('invoice-edit') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/app/invoice/edit"> Edit </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li> -->
                     <!-- <li class="menu {{ Request::routeIs('chat') ? 'active' : '' }}">
@@ -175,7 +199,7 @@
                             </li>
                             <li class="{{ Request::routeIs('invoice-edit') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/app/invoice/edit"> Edit </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
 
@@ -201,10 +225,10 @@
                             </li>
                             <li class="{{ Request::routeIs('ecommerce-add') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/app/ecommerce/add"> Create </a>
-                            </li>                            
+                            </li>
                             <li class="{{ Request::routeIs('ecommerce-edit') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/app/ecommerce/edit"> Edit </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
 
@@ -230,7 +254,7 @@
                             </li>
                             <li class="{{ Request::routeIs('blog-create') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/app/blog/create"> Create </a>
-                            </li>                            
+                            </li>
                             <li class="{{ Request::routeIs('blog-edit') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/app/blog/edit"> Edit </a>
                             </li>
@@ -260,7 +284,7 @@
                             </li>
                             <li class="{{ Request::routeIs('modal') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/component/modal"> Modals </a>
-                            </li>                            
+                            </li>
                             <li class="{{ Request::routeIs('cards') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/component/cards"> Cards </a>
                             </li>
@@ -325,7 +349,7 @@
                             </li>
                             <li class="{{ Request::routeIs('breadcrumbs') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/element/breadcrumbs"> Breadcrumbs </a>
-                            </li>                            
+                            </li>
                             <li class="{{ Request::routeIs('buttons') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/element/buttons"> Buttons </a>
                             </li>
@@ -497,7 +521,7 @@
                             </li>
                             <li class="{{ Request::routeIs('maxlength') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/form/maxlength"> Maxlength </a>
-                            </li>                          
+                            </li>
                             <li class="{{ Request::routeIs('checkbox') ? 'active' : '' }}">
                                 <a href="{{getRouterValue();}}/form/checkbox"> Checkbox </a>
                             </li>
@@ -536,7 +560,7 @@
 
                     <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>USER AND PAGES</span></div>
-                    </li>                    
+                    </li>
 
                     <li class="menu {{ Request::is('*/user/*') ? "active" : "" }}">
                         <a href="#users" data-bs-toggle="collapse" aria-expanded="{{ Request::is('*/user/*') ? "true" : "false" }}" class="dropdown-toggle">
@@ -655,7 +679,7 @@
 
                             <li>
                                 <a href="#level-three" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed"> Item Level 1c <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="collapse list-unstyled sub-submenu" id="level-three" data-bs-parent="#pages"> 
+                                <ul class="collapse list-unstyled sub-submenu" id="level-three" data-bs-parent="#pages">
                                     <li>
                                         <a href="javascript:void(0);"> Item Level 2a </a>
                                     </li>
@@ -688,7 +712,7 @@
                             </div>
                         </a>
                     </li>
-                    
+
                     <li class="menu">
                         <a target="_blank" href="https://designreset.com/cork/documentation/laravel/index.html" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
@@ -705,9 +729,9 @@
                             </div>
                         </a>
                     </li> -->
-                    
+
                 </ul>
-                
+
             </nav>
 
         </div>
